@@ -1,0 +1,255 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    z-index: 3;
+}
+.navbar-collaspe{
+    margin-right: 20px;
+    justify-content: right;
+}
+
+.nav-item{
+    padding-right: 40px;
+    color: #F16529;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f17a46; /* Set your desired color here */
+}
+
+.nav-link::after{
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: #F16529;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+
+}
+
+.nav-link:hover::after{
+    transform: scaleX(1);
+}
+
+
+/* header */
+header {
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+    overflow: hidden;
+    height: 400px;
+    border: 2px solid; /* Set the height of the header as needed */
+    background-color: #f0f0f0; /* Just for demonstration, use your desired background color */
+    border: 2px solid #ccc; /* Add a border to the header */
+    box-sizing: border-box; /* Include border in the header's total height */
+  }
+
+.header-text{
+    padding-bottom: 20px;
+    position: absolute;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 500px;
+}
+
+/* .header-text h2{
+    color: #2a2727;
+text-align: center;
+font-family: Livvic;
+font-size: 64px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+display: flex;
+} */
+
+.header-text h2 h3{
+    /* display: flex; */
+width: 495px;
+height: 57px;
+/* flex-direction: column; */
+justify-content: center;
+/* flex-shrink: 0; */
+color: #484646;
+text-align: center;
+font-family: Livvic;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+align-content: center;
+}
+
+.header-text button{
+    color: #413f3f;
+text-align: center;
+font-family: Livvic;
+font-size: 20px;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+justify-content: center;
+/* margin-left: 100px; */
+margin-top: 20px;
+border: 2px solid #FB532E;
+padding: 10px 30px 10px 30px;
+border-radius: 20px;
+}
+
+.header-image img{
+    background: url("./mypics2.jpg") lightgray 50% / cover no-repeat, #0D0E13;    box-shadow: 5px 1px 25px 13px #6B6565;
+    width: 270px;
+    height: 278px;
+    flex-shrink: 0;
+    border-radius: 578px;
+    position: relative;
+    float: right;
+    z-index: 1;
+    right: -400px;
+    top: -10px;
+    border: 5px solidrgb(92, 91, 91)1;
+}
+
+.header-shape{
+    width: 1085px;
+    height: 1085px;
+    transform: rotate(-11.882deg);
+    border-radius: 1257.385px;
+    background: #D9D9D9;
+    position: absolute;
+    right: calc(50% - 1085px / 2);
+    z-index: 0;
+    margin-right: -600px;
+    top: 100px;
+}
+
+/* end header */
+
+.about-section {
+    position: relative;
+    /* display:flex;
+    flex-direction: column; */
+    /* justify-content: center; */
+    align-items: center;
+    background-color: #292626;
+    border:2px solid #282626;
+    height: 600px;
+    z-index: 7;
+}
+
+.about-section h1{
+    color: #fc5b37;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-message{
+    width: 540px;
+    height: 424px;
+    position: absolute;
+    margin-left: 180px;
+    margin-top: 130px;
+    text-decoration: #FFF;;
+}
+
+.about-message h2{
+    color: #fff;
+}
+.about-message p{
+    color: #FFF;
+}
+
+.about-message button{
+    background-color: #F16529;
+    padding: 10px 25px 10px 25px;
+    font-weight: 800;
+    border-radius: 20px;
+    color: #eae4e4;
+}
+
+.about-image img{
+    width: 270px;
+    height: 278px;
+    flex-shrink: 0;
+    border-radius: 578px;
+    position: relative;
+    float: right;
+    z-index: 1;
+    top: 40px;
+    margin-right: 100px;
+}
+
+.about-image h3{
+    color: #d1caca;
+    float: right;
+    right: 0;
+    position:absolute;
+    top: 430px;
+    margin-right: 80px;
+}
+.about-shape{
+    width: 270px;
+    height: 278px;
+    flex-shrink: 0;
+    border-radius: 578px;
+    background: #fc5b37;
+    position: absolute;
+    float: right;
+    right: 0;
+    z-index: 0;
+    /* top: 10px; */
+    margin-right: 50px;
+    margin-top: 1px;
+}
+
+/* .about-title{
+
+    float: right;
+    right: 0;
+    color: #FFF;
+    position: absolute;
+    flex-shrink: 0;
+    z-index: 0;
+    top: 280px;
+    justify-content: center;
+    text-align: center;
+    margin: 80px;
+} */
+
+
+.service-card-container{
+    position: relative;
+    place-items: center;
+    justify-content: center;
+    margin-right: 150px;
+    margin-top: 20px;
+}
+
+.service-card-container h2{
+   margin-left: 150px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    float: right;
+    margin-right: 20px;
+}
+
+.service-icon{
+    position:absolute;
+}
