@@ -230,8 +230,9 @@ border-radius: 20px;
     margin: 80px;
 } */
 
+/* service section start */
 
-.service-card-container{
+.service-card{
     position: relative;
     place-items: center;
     justify-content: center;
@@ -239,17 +240,32 @@ border-radius: 20px;
     margin-top: 20px;
 }
 
-.service-card-container h2{
-   margin-left: 150px;
+.service-card h2{
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 130px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .card{
     display: flex;
     justify-content: center;
-    float: right;
+    margin-left: 100px;
+    right: 0%;
     margin-right: 20px;
+    place-content: center;
+    margin-bottom: 10px;
 }
 
 .service-icon{
     position:absolute;
+}
+
+svg{
+    margin-top: 20px;
+    padding-right: 100px;
+    justify-content: center;
+    margin-left: 380px;
 }
