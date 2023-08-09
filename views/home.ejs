@@ -33,7 +33,7 @@
     <div class="header-text ">
         <h2>Welcome!</h2>
         <h3>I’m <span style="color: #F16529;">Kennedy Chibueze Onyekwere</span> <br> Software Engineer.</h3>
-        <button>Hire me!</button>
+        <button><a href="contact">Hire me!</a></button>
     </div>
     <div class="header-image">
         <img src="/images/mypics1.jpg">
@@ -247,7 +247,39 @@
 
   <!-- Contact section -->
   <section class="contact-section" id="contact">
+    <div class="container">
+
+      <div class="form-container">
+
+        <div class="form-header"><h2>Let's <span style="color: #F16529;">talk</span></h2></div>
+        <form action="/home" method="post">
     
+          <div class="inner-container">
+            <input type="text" id="fname" name="firstname" placeholder="Your name.."><br>
+      
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.."><br>
+            <input type="email" id="email" name="email" placeholder="Email"><br>
+        
+            <textarea id="subject" name="subject" placeholder="Write message.." style="height:200px"></textarea><br>
+        
+            <input type="submit" value="Submit">
+          </div>
+      
+        </form>  
+      </div>
+
+      <div class="contact-icon">
+        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="#"><i class="fab fa-github fa-2x"></i></a>
+      </div>
+
+      <div class="contact-image">
+        <img src="/images/contact-image1.png" alt="">
+      </div>
+
+    </div>
   </section>
 
 <%- include('partials/footer') %>

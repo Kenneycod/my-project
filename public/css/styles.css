@@ -47,10 +47,11 @@ header {
     z-index: 6;
     overflow: hidden;
     height: 400px;
-    border: 2px solid; /* Set the height of the header as needed */
-    background-color: #f0f0f0; /* Just for demonstration, use your desired background color */
-    border: 2px solid #ccc; /* Add a border to the header */
-    box-sizing: border-box; /* Include border in the header's total height */
+    border: 2px solid; 
+    background-color: #f0f0f0;
+    border: 2px solid #ccc; 
+    box-sizing: border-box; 
+    
   }
 
 .header-text{
@@ -116,6 +117,7 @@ border-radius: 20px;
     z-index: 0;
     margin-right: -600px;
     top: 100px;
+    background: url('/images/Wallpaper.jpeg');
 }
 
 /* end header */
@@ -123,9 +125,6 @@ border-radius: 20px;
 /* About starts */
 .about-section {
     position: relative;
-    /* display:flex;
-    flex-direction: column; */
-    /* justify-content: center; */
     align-items: center;
     background-color: #292626;
     border:2px solid #282626;
@@ -281,7 +280,7 @@ svg{
     color: #F16529;
     margin-right: 10px;
     margin-bottom: 20px;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out;
   }
 
   .carousel-item .card a:hover{
@@ -307,4 +306,85 @@ svg{
     margin-right: 15px;
   }
 
+  /* contact-section starts */
+
+  .contact-section .container{
+    border-radius: 200px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 50%;
+  }
+
+  .form-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:ivory;
+    margin-bottom: 20px;
+  }
+
+  .contact-section .container input[type="text"], input[type="email"],textarea{
+    border-bottom:2px solid #F16529;
+    /* border: none; */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    background-color: inherit;
+    max-width: 300px;
+  }
+
+  .form-container{
+    position: absolute;
+    background-color: #292626;
+    padding: 80px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-right: 400px;
+    z-index: 0;
+    float: left;
+    margin-left: -300px;
+    border-radius: 20px;
+  }
+
+  .form-container input[type="submit"]{
+    align-self: center;
+    justify-content: center;
+  }
+
+  .inner-container{
+    border:2px solid #F16529;
+    border-radius: 20px;
+    padding: 20px 50px 20px 50px;
+  }
+
+  .contact-image{
+    left: -300px;
+    overflow-x: visible;
+    float: right;
+    margin-right: -500px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-icon {
+    z-index: 0;
+    position:absolute;
+    margin-top: 460px;
+    margin-left: 200px;
+  }
+
+  .contact-icon a{
+    margin-left: 20px;
+    color: #e57740;
+  }
   
+ 

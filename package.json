@@ -19,7 +19,11 @@
   "homepage": "https://github.com/Kenneycod/my-project#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongo": "^0.1.0",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.2"
   }
 }
