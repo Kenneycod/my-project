@@ -1,4 +1,5 @@
 const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const dotenv = require('dotenv').config();
 
@@ -51,8 +52,19 @@ async function deleteDocument(dbName, collectionName, filter) {
   return result;
 }
 
+// file upload schema
+const Schema = mongoose.Schema;
+
+const uploadSchema = new Schema({
+  name:String,
+  date:String
+})
+
+const File = mongoose.model('File',uploadSchema)
+
 module.exports = {
   connect,
+  File,
   close,
   createDocument,
   readDocument,

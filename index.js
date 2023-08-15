@@ -3,7 +3,10 @@ const bodyparser = require('body-parser');
 const ejs = require('ejs');
 const dotenv = require('dotenv').config();
 const nodemailer = require('nodemailer');
-const {connect, close,createDocument,readDocument,updateDocument,deleteDocument,}=require('./database');
+const mongoose = require('mongoose')
+const multer = require('multer');
+const path = require('path');
+const {connect, File,close,createDocument,readDocument,updateDocument,deleteDocument,}=require('./database');
 
 const app = express();
 app.use(express.static('public'));
@@ -25,12 +28,69 @@ const transporter = nodemailer.createTransport({
     }
 })
 
+// configure multer
+const multerStorage = multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null, 'public');
+    },
+    filename:(req,file,cb)=>{
+        const ext = file.mimetype.split('/')[1]
+        cb(null, file.originalname)
+    }
+});
+
+// multer filter
+const multerFilter = (req,file,cb)=>{
+    if (file.mimetype.split('/')[1] === 'pdf') {
+        cb(null, true)
+    } else {
+        cb(new Error('Not a pdf File!!'), false)
+    }
+};
+
+const upload = multer({
+    storage:multerStorage,
+    fileFilter:multerFilter
+});
+
 app.get('/home',(req,res)=>{
     res.render('home')
 })
 
+app.get('/upload',(req,res)=>{
+    res.render('upload')
+})
+
+app.post('/upload',upload.single('file'),async (req,res)=>{
+    console.log(req.file)
+    const filename = req.file.originalname;
+    const dbName = process.env.dbName;
+    const collectionName = 'Files';
+
+    try{
+        await connect();
+        const file = {
+            name:filename,
+            created_Date:Date.now()
+        }
+
+        const upload = await createDocument(dbName,collectionName,file).then(()=>{
+            res.render('upload',{message:'Successfully uploaded....'})
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    } finally{
+        await close();
+    }
+})
+
 app.get('/contact',(req,res)=>{
     res.render('home')
+})
+
+app.get('/home/downloadcv', async (req,res)=>{
+    res.send('hello the link is working')
 })
 
 app.post('/home',async (req,res)=>{
