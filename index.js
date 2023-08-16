@@ -6,10 +6,13 @@ const nodemailer = require('nodemailer');
 const mongoose = require('mongoose')
 const multer = require('multer');
 const path = require('path');
-const {connect, File,close,createDocument,readDocument,updateDocument,deleteDocument,}=require('./database');
+const fs = require('fs');
+const {connect, File,close,createDocument,readDocument,DownloadDocument,updateDocument,deleteDocument,}=require('./database');
+const { MIMEType } = require('util');
 
 const app = express();
 app.use(express.static('public'));
+app.use(express.static(__dirname));
 app.use(bodyparser.urlencoded({extended:true}));
 
 //setting ejs engine
@@ -57,6 +60,7 @@ app.get('/home',(req,res)=>{
     res.render('home')
 })
 
+// upload file to mongoDB
 app.get('/upload',(req,res)=>{
     res.render('upload',{success:''})
 })
@@ -64,6 +68,8 @@ app.get('/upload',(req,res)=>{
 app.post('/upload',upload.single('file'),async (req,res)=>{
     console.log(req.file)
     const filename = req.file.originalname;
+    const filepath = req.file.path;
+    const filedata = fs.readFileSync(filepath);
     const dbName = process.env.dbName;
     const collectionName = process.env.uploadCollection;
     const message = 'Successfully uploaded....';
@@ -72,7 +78,9 @@ app.post('/upload',upload.single('file'),async (req,res)=>{
         await connect();
         const file = {
             name:filename,
-            created_Date:Date.now()
+            data:filepath,
+            contentType:req.file.mimetype,
+            created_Date:Date(),
         }
 
         const upload = await createDocument(dbName,collectionName,file).then(()=>{
@@ -91,9 +99,26 @@ app.get('/contact',(req,res)=>{
     res.render('home')
 })
 
-app.get('/home/downloadcv', async (req,res)=>{
-    res.send('hello the link is working')
-})
+app.get('/home/downloadcv/:id', async (req,res)=>{
+
+    const fileID = req.params.id;
+    const dbName = process.env.dbName;
+    const collectionName = process.env.uploadCollection;
+
+    try{
+        await connect();
+
+        const file = await DownloadDocument(dbName,collectionName,fileID)
+        console.log(file)
+        res.setHeader('Content-Disposition', `attachment; filename=${file.name}`);
+        res.setHeader('Content-Type', file.contentType);
+        res.sendFile(path.join(__dirname,file.data));
+
+    } finally{
+        await close();
+    }
+
+});
 
 app.post('/home',async (req,res)=>{
     const {firstname,lastname,email,subject} = req.body;

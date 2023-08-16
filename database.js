@@ -38,6 +38,13 @@ async function readDocument(dbName, collectionName, filter) {
   return documents;
 }
 
+async function DownloadDocument(dbName, collectionName, filter) {
+  const db = client.db(dbName);
+  const collection = db.collection(collectionName);
+  const documents = await collection.findOne({ _id:new ObjectId(filter) });
+  return documents;
+}
+
 async function updateDocument(dbName, collectionName, filter, update) {
   const db = client.db(dbName);
   const collection = db.collection(collectionName);
@@ -68,6 +75,7 @@ module.exports = {
   close,
   createDocument,
   readDocument,
+  DownloadDocument,
   updateDocument,
   deleteDocument,
 };
