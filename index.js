@@ -56,6 +56,7 @@ const upload = multer({
     fileFilter:multerFilter
 });
 
+// rendering home page
 app.get('/home',(req,res)=>{
     res.render('home')
 })
@@ -95,10 +96,8 @@ app.post('/upload',upload.single('file'),async (req,res)=>{
     }
 })
 
-app.get('/contact',(req,res)=>{
-    res.render('home')
-})
 
+//download cv file
 app.get('/home/downloadcv/:id', async (req,res)=>{
 
     const fileID = req.params.id;
@@ -120,6 +119,7 @@ app.get('/home/downloadcv/:id', async (req,res)=>{
 
 });
 
+// sending email notification for contact form
 app.post('/home',async (req,res)=>{
     const {firstname,lastname,email,subject} = req.body;
 

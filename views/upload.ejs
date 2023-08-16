@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <div id="message-container">
-                    <% if (success) { %>
+                    <% if (success ) { %>
                         <span style="color: aliceblue;"> <%= success %> <i class="fa-solid fa-circle-check fa-beat" style="color: #ee6820;"></i></span>
                     <% } %>
                     </div>
@@ -27,13 +27,12 @@
     </main>
 
     <script>
-        // Wait for 5 seconds (5000 milliseconds) and then hide the message
         setTimeout(()=> {
           var messageContainer = document.getElementById("message-container");
           if (messageContainer) {
             messageContainer.style.display = "none";
           }
-        }, 2000); // Adjust the time as needed
+        }, 2000); 
       </script>
       
 
