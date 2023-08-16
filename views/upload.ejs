@@ -12,15 +12,14 @@
                             <input type="file" id="file-upload" class="file-upload" name="file" data-height="500">
                         </div>
                     </div>
-
-                    <% if (message) { %>
-                     <div class="message-container">
-                        <span><%= message %></span>
-                     </div>
+                    <div id="message-container">
+                    <% if (success) { %>
+                        <span style="color: aliceblue;"> <%= success %> <i class="fa-solid fa-circle-check fa-beat" style="color: #ee6820;"></i></span>
                     <% } %>
+                    </div>
                     
                     <div class="submit-btn">
-                        <button type="submit">Upload</button>
+                        <button type="submit">Upload </button>
                     </div>
                 </form>
             </div>
@@ -30,11 +29,11 @@
     <script>
         // Wait for 5 seconds (5000 milliseconds) and then hide the message
         setTimeout(()=> {
-          var messageContainer = document.getElementsByClassName("message-container");
+          var messageContainer = document.getElementById("message-container");
           if (messageContainer) {
-            messageContainer.style.display = "hidden";
+            messageContainer.style.display = "none";
           }
-        }, 5000); // Adjust the time as needed
+        }, 2000); // Adjust the time as needed
       </script>
       
 

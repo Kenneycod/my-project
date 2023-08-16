@@ -58,14 +58,15 @@ app.get('/home',(req,res)=>{
 })
 
 app.get('/upload',(req,res)=>{
-    res.render('upload')
+    res.render('upload',{success:''})
 })
 
 app.post('/upload',upload.single('file'),async (req,res)=>{
     console.log(req.file)
     const filename = req.file.originalname;
     const dbName = process.env.dbName;
-    const collectionName = 'Files';
+    const collectionName = process.env.uploadCollection;
+    const message = 'Successfully uploaded....';
 
     try{
         await connect();
@@ -75,10 +76,11 @@ app.post('/upload',upload.single('file'),async (req,res)=>{
         }
 
         const upload = await createDocument(dbName,collectionName,file).then(()=>{
-            res.render('upload',{message:'Successfully uploaded....'})
+            res.render('upload',{success:message})
         }).catch(err=>{
             console.log(err)
-        })
+        });
+        console.log('uploaded: ',upload)
 
     } finally{
         await close();
