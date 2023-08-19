@@ -119,6 +119,16 @@ app.get('/home/downloadcv/:id', async (req,res)=>{
 
 });
 
+// review card form
+app.get('/review',(req,res)=>{
+    res.render('review');
+});
+
+app.post('/review',(req,res)=>{
+    const {firstname,lastname,email,rating} = req.body;
+    console.log("rating: ",firstname,lastname,email,rating);
+})
+
 // sending email notification for contact form
 app.post('/home',async (req,res)=>{
     const {firstname,lastname,email,subject} = req.body;

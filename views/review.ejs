@@ -1,0 +1,104 @@
+<%- include('partials/header') %>
+
+<div class="review-header">
+
+    <div class="review-header-image">
+        <img src="/public/images/Logo2.png" alt="" style="height: 100px;">
+    </div>
+
+    <div class="review-header-text">
+        <span>Rate <span style="color: rgb(232, 102, 55);">Me</span>!</span>
+    </div>
+
+    <div >
+        <button class="review-header-btn">Portfolio</button>
+    </div>
+
+</div>
+
+<div class="main-container">
+
+    <div class="review-image">
+        <img src="/images/review-image.png" alt="">
+    </div>
+
+    <div class="review-main">
+            <form action="/review" method="post">
+                <div class="review-container">
+                    <div class="pagination">
+                        
+                        <div class="page" id="page1">
+                            <input type="text" class="review-text" name="lastname" placeholder="Last name" required>
+                            <input type="text" class="review-text" name="firstname" placeholder="First name" required>
+                            <input type="text" class="review-text" name="company" placeholder="company name" required>
+                            <input type="text" class="review-text" name="title" placeholder="title" required>
+                            <input type="email" class="review-text" name="email" placeholder="Email" required><br>
+                            
+                            <label for="rate">Rating</label>
+                            <select name="rating" id="rate" aria-placeholder="Rating: ">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
+                        <div class="page" id="page2">
+                            <textarea name="message"  id="" class="review-text" style="height:100px" placeholder="Your message"></textarea>
+                            <input type="text" class="review-text" name="facebook" placeholder="Facebook Link">
+                            <input type="text" class="review-text" name="twitter" placeholder="twitter Link">
+                            <input type="text" class="review-text" name="github" placeholder="github Link">
+                            <button type="submit" class="review-btn">Submit</button>
+                        </div>
+            
+                    </div>
+                    <div class="controls">
+                        <i class="fa-solid fa-circle-chevron-left fa-2xl"  id="prevBtn" style="color: #ef721f;"></i> 
+                        <i class="fa-solid fa-circle-chevron-right fa-2xl" id="nextBtn" style="color: #ef721f;"></i>                    </div>
+                    </div>
+                </div>
+            </form>
+    </div>
+    <div class="review-image">
+        
+    </div>
+    
+</div>
+
+<script>
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+
+    let currentPage = 1;
+
+    function showPage(pageNumber) {
+        if (pageNumber === 1) {
+            page1.style.display = 'block';
+            page2.style.display = 'none';
+        } else if (pageNumber === 2) {
+            page1.style.display = 'none';
+            page2.style.display = 'block';
+        }
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < 2) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    showPage(currentPage); // Show the initial page
+
+</script>
+<%- include('partials/footer') %>
