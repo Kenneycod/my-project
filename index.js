@@ -98,7 +98,7 @@ app.post('/upload',upload.single('file'),async (req,res)=>{
 
 
 //download cv file
-app.get('/home/downloadcv/:id', async (req,res)=>{
+app.get('/downloadcv/:id', async (req,res)=>{
 
     const fileID = req.params.id;
     const dbName = process.env.dbName;
@@ -175,7 +175,7 @@ app.post('/review',async (req,res)=>{
 })
 
 // sending email notification for contact form
-app.post('/home',async (req,res)=>{
+app.post('/',async (req,res)=>{
     const {firstname,lastname,email,subject} = req.body;
 
         try{
@@ -207,7 +207,7 @@ app.post('/home',async (req,res)=>{
         }
 
     
-    res.redirect('/home')
+    res.redirect('/')
 })
 
 app.listen(process.env.PORT || 3000,()=>{
