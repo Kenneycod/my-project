@@ -98,7 +98,7 @@ app.post('/upload',upload.single('file'),async (req,res)=>{
 
 
 //download cv file
-app.get('/downloadcv/:id', async (req,res)=>{
+app.get('/home/downloadcv/:id', async (req,res)=>{
 
     const fileID = req.params.id;
     const dbName = process.env.dbName;
