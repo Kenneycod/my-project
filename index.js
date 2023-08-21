@@ -57,7 +57,7 @@ const upload = multer({
 });
 
 // rendering home page
-app.get('/home',(req,res)=>{
+app.get('/',(req,res)=>{
     res.render('home')
 })
 
