@@ -121,12 +121,57 @@ app.get('/home/downloadcv/:id', async (req,res)=>{
 
 // review card form
 app.get('/review',(req,res)=>{
-    res.render('review');
+    res.render('review',{success:false});
 });
 
-app.post('/review',(req,res)=>{
-    const {firstname,lastname,email,rating} = req.body;
-    console.log("rating: ",firstname,lastname,email,rating);
+app.post('/review',async (req,res)=>{
+    const rate = {firstname,
+        lastname,
+        company,
+        title,
+        email,
+        rating,
+        message,
+        facebook,
+        twitter,
+        github,
+    } = req.body;
+    var success = false;
+    console.log(rate);
+    try{
+        await connect();
+        const dbName = process.env.RWDB;
+        const collectionName = process.env.RWCN
+
+        const result = await createDocument(dbName,collectionName,rate).then(()=>{
+            success = true;
+            console.log('submitted review........!')
+            res.render('review',{success});
+        }).catch(err=>{
+            console.log(err);
+            success = false;
+        })
+
+        if(success){
+            const emailContent = {
+                from: process.env.user,
+                to:'chibkennedy@gmail.com',
+                subject: `${rate.firstname} ${rate.lastname} rate you`,
+                text:`from: ${rate.email} message: ${rate.message}`,
+            }
+
+            transporter.sendMail(emailContent,(err,info)=>{
+                if (err){
+                    console.log(err)
+                } else {
+                    console.log('Email sent successfully: ',info)
+                }
+            })
+        }
+
+    } finally{
+        await close();
+    }
 })
 
 // sending email notification for contact form

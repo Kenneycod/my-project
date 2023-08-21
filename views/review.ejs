@@ -11,7 +11,7 @@
     </div>
 
     <div >
-        <button class="review-header-btn">Portfolio</button>
+        <a href="/home"><button class="review-header-btn">Portfolio</button></a>
     </div>
 
 </div>
@@ -51,17 +51,20 @@
                             <input type="text" class="review-text" name="github" placeholder="github Link">
                             <button type="submit" class="review-btn">Submit</button>
                         </div>
+
+                        <% if (success) { %>
+                            <div class="review-sucess-mgs" id="successMessage">
+                                <span style="color: rgb(22, 22, 23);"> Submitted Successfully! <i class="fa-solid fa-circle-check fa-beat" style="color: #ee6820;"></i></span>
+                            </div>
+                        <% } %>
             
                     </div>
                     <div class="controls">
-                        <i class="fa-solid fa-circle-chevron-left fa-2xl"  id="prevBtn" style="color: #ef721f;"></i> 
-                        <i class="fa-solid fa-circle-chevron-right fa-2xl" id="nextBtn" style="color: #ef721f;"></i>                    </div>
+                        <i type="button" class="fa-solid fa-circle-chevron-left fa-2xl"  id="prevBtn" style="color: #ef721f;"></i> 
+                        <i type="button" class="fa-solid fa-circle-chevron-right fa-2xl" id="nextBtn" style="color: #ef721f;"></i>                    </div>
                     </div>
                 </div>
             </form>
-    </div>
-    <div class="review-image">
-        
     </div>
     
 </div>
@@ -98,7 +101,14 @@
         }
     });
 
-    showPage(currentPage); // Show the initial page
+    showPage(currentPage);
+
+    // setTimeout(() => {
+    //     var success_Message = document.getElementById(successMessage)
+    //     if(success_Message){
+    //         successMessage.style.display="none";
+    //     }
+    // }, 2000);
 
 </script>
 <%- include('partials/footer') %>
