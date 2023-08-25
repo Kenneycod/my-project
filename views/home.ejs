@@ -36,7 +36,7 @@
         <a href="#contact"></a><button>Hire me!</button></a>
     </div>
     <div class="header-image">
-        <img src="/images/mypics1.jpg">
+        <img src="/images/home-image-removebg-preview.png">
     </div>
     <div class="header-shape">
 
@@ -206,35 +206,50 @@
     <div id="testimonial-carousel" class="carousel slide" data-ride="false">
       <div class="carousel-inner">
 
-        <div class="carousel-item active">
-          <div class="card">
-            <img class="testimonial-image img-fluid mx-auto d-block" src="/images/card-images4.jpeg" alt="John">
-            <span>John Doe</span>
-            <p class="title">CEO & Founder, Example</p>
-            <p>Harvard University</p>
-            <div class="social-icon">
-              <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-              <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-              <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
-              <a href="#"><i class="fab fa-github fa-2x"></i></a>
-            </div>
-          </div>
-        </div>
+        <% reviewData.forEach((reviewee,index) => { %>
 
-        <div class="carousel-item">
-          <div class="card">
-            <img class="testimonial-image img-fluid mx-auto d-block" src="/images/mypics1.jpg" alt="John">
-            <span>Kennedy Chibueze</span>
-            <p class="title">CEO & Founder, Example</p>
-            <p style="color: rgb(246, 243, 239);">He is a good and hard working guy, great team worker</p>
-            <div class="social-icon">
-              <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-              <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-              <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
-              <a href="#"><i class="fab fa-github fa-2x"></i></a>
+          <% if (index === 0) { %>
+            <div class="carousel-item active">
+              <div class="card">
+                <img class="testimonial-image img-fluid mx-auto d-block" src="/images/card-images4.jpeg" alt="John">
+                <span><%= reviewee.firstname %> <%= reviewee.lastname %></span>
+                <p class="title"><%= reviewee.title %> | <%= reviewee.company %></p>
+                <div>
+                  <% for( let index = 0; index < reviewee.rating; index++ ) { %>
+                    <i class="fa-solid fa-star" style="color: #edb007;"></i>
+                  <% } %>
+                </div>
+                <div class="social-icon">
+                  <a href=<%= reviewee.facebook %>><i class="fab fa-facebook fa-2x"></i></a>
+                  <a href=<%= reviewee.twitter %>><i class="fab fa-twitter fa-2x"></i></a>
+                  <a href=<%= reviewee.facebook %>><i class="fab fa-linkedin fa-2x"></i></a>
+                  <a href=<%= reviewee.github %>><i class="fab fa-github fa-2x"></i></a>
+                </div>
+              </div>
             </div>
-          </div>
-      </div>
+          <% } else { %>
+            <div class="carousel-item">
+              <div class="card">
+                <img class="testimonial-image img-fluid mx-auto d-block" src="/images/card-images4.jpeg" alt="John">
+                <span><%= reviewee.firstname %> <%= reviewee.lastname %></span>
+                <p class="title"><%= reviewee.title %> | <%= reviewee.company %></p>
+                <div>
+                  <% for( let index = 0; index < reviewee.rating; index++ ) { %>
+                    <i class="fa-solid fa-star" style="color: #edb007;"></i>
+                  <% } %>
+                </div>
+                <div class="social-icon">
+                  <a href=<%= reviewee.facebook %>><i class="fab fa-facebook fa-2x"></i></a>
+                  <a href=<%= reviewee.twitter %>><i class="fab fa-twitter fa-2x"></i></a>
+                  <a href=<%= reviewee.facebook %>><i class="fab fa-linkedin fa-2x"></i></a>
+                  <a href=<%= reviewee.github %>><i class="fab fa-github fa-2x"></i></a>
+                </div>
+              </div>
+            </div>
+          <% } %>
+          
+
+        <% }) %>
 
       <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon"></span>

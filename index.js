@@ -57,7 +57,18 @@ const upload = multer({
 });
 
 // rendering home page
-app.get('/',(req,res)=>{
+app.get('/',async (req,res)=>{
+
+    const dbName = process.env.RWDB;
+    const collectionName = process.env.RWCN
+    try{
+     await connect();
+     const reviewData = await readDocument(dbName,collectionName,{});
+     res.render('home',{reviewData})
+     console.log(reviewData)
+    } finally{
+    await close();
+    }
     res.render('home')
 })
 
@@ -111,7 +122,7 @@ app.get('/home/downloadcv/:id', async (req,res)=>{
         console.log(file)
         res.setHeader('Content-Disposition', `attachment; filename=${file.name}`);
         res.setHeader('Content-Type', file.contentType);
-        res.sendFile(path.join(__dirname,file.data));
+        res.sendFile(path.join(__dirname + "/"+ file.data));
 
     } finally{
         await close();
@@ -210,6 +221,6 @@ app.post('/',async (req,res)=>{
     res.redirect('/')
 })
 
-app.listen(process.env.PORT || 3000,()=>{
-    console.log('server is running .........');
+app.listen(3000,()=>{
+    console.log(`server is running .........`);
 })

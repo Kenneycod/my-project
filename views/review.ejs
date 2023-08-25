@@ -51,13 +51,6 @@
                             <input type="text" class="review-text" name="github" placeholder="github Link">
                             <button type="submit" class="review-btn">Submit</button>
                         </div>
-
-                        <% if (success) { %>
-                            <div class="review-sucess-mgs" id="successMessage">
-                                <span style="color: rgb(22, 22, 23);"> Submitted Successfully! <i class="fa-solid fa-circle-check fa-beat" style="color: #ee6820;"></i></span>
-                            </div>
-                        <% } %>
-            
                     </div>
                     <div class="controls">
                         <i type="button" class="fa-solid fa-circle-chevron-left fa-2xl"  id="prevBtn" style="color: #ef721f;"></i> 
@@ -65,6 +58,11 @@
                     </div>
                 </div>
             </form>
+            <div class="review-sucess-mgs" id="success-Message">
+                <% if (success) { %>
+                    <span style="color: rgb(22, 22, 23);"> Submitted Successfully! <i class="fa-solid fa-circle-check fa-beat" style="color: #ee6820;"></i></span>
+                <% } %>
+            </div>
     </div>
     
 </div>
@@ -103,12 +101,30 @@
 
     showPage(currentPage);
 
-    // setTimeout(() => {
+    // const form = document.querySelector('form')
+    // setTimeout(()=>{
     //     var success_Message = document.getElementById(successMessage)
-    //     if(success_Message){
-    //         successMessage.style.display="none";
+    //     if (success_Message) {
+    //         success_Message.style.display = 'block';
     //     }
-    // }, 2000);
+    // },2000)    
+
+    // public/scripts.js
+document.addEventListener('submit', function () {
+    const successMessage = document.getElementById("success-Message");
+    if (successMessage) {
+        // Show the success message
+        successMessage.classList.remove("review-sucess-mgs");
+
+        // Hide the success message after a few seconds
+        setTimeout(function () {
+            successMessage.classList.add("review-sucess-mgs");
+        }, 3000); // Adjust the time (in milliseconds) as needed
+    }
+});
+
+
+    
 
 </script>
 <%- include('partials/footer') %>

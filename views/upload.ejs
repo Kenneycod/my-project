@@ -12,7 +12,7 @@
                             <input type="file" id="file-upload" class="file-upload" name="file" data-height="500">
                         </div>
                     </div>
-                    <div id="message-container">
+                    <div id="message-container" style="display: none;">
                     <% if (success ) { %>
                         <span style="color: aliceblue;"> <%= success %> <i class="fa-solid fa-circle-check fa-beat" style="color: #ee6820;"></i></span>
                     <% } %>
@@ -30,7 +30,7 @@
         setTimeout(()=> {
           var messageContainer = document.getElementById("message-container");
           if (messageContainer) {
-            messageContainer.style.display = "none";
+            messageContainer.style.display = "block";
           }
         }, 2000); 
       </script>

@@ -52,6 +52,17 @@ footer{
     transform: scaleX(1);
 }
 
+.nav-link:active{
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: #F16529;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: none;
+}
+
 
 /* header */
 header {
@@ -109,20 +120,14 @@ border-radius: 20px;
 }
 
 .header-image img{
-    background: url("./mypics2.jpg") lightgray 50% / cover no-repeat, #0D0E13;    box-shadow: 5px 1px 25px 13px #6B6565;
-    width: 270px;
-    height: 278px;
-    flex-shrink: 0;
-    border-radius: 578px;
     position: relative;
     float: right;
     z-index: 1;
-    right: -400px;
+    right: -350px;
     top: -10px;
-    border: 5px solidrgb(92, 91, 91)1;
 }
 
-.header-shape{
+/* .header-shape{
     width: 1085px;
     height: 1085px;
     transform: rotate(-11.882deg);
@@ -134,7 +139,7 @@ border-radius: 20px;
     margin-right: -600px;
     top: 100px;
     background: url('/images/Wallpaper.jpeg');
-}
+} */
 
 /* end header */
 
@@ -287,6 +292,7 @@ svg{
     border-color: #F16529;
     background-color: #282626;
     border-radius: 10%;
+    padding: 20px;
   }
 
   .carousel-item .card span{
@@ -317,6 +323,7 @@ svg{
   .title {
     color: grey;
     font-size: 10px;
+    margin-bottom: 3px;
   }
   
   .carousel-item .card p{
@@ -628,6 +635,7 @@ label {
 }
 
 .review-success-mgs{
-  background-color: #f1eeec;
+  display: none;
+  transition: ease-in-out;
 }
 
