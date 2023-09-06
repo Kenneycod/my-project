@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
 html{
   scroll-behavior: smooth;
+}
+
+html:hover{
+  cursor:-moz-grabbing;
 }
 
 body{
@@ -16,8 +22,6 @@ footer{
     z-index: 3;
     border: none;
     opacity: 100%;
-    margin-top: 7%;
-    margin-bottom: 5%;
 }
 .navbar-collaspe{
     margin-right: 20px;
@@ -90,8 +94,9 @@ header {
     align-items: center;
     z-index: 6;
     overflow: hidden;
-    height: 400px;
-    background-color: #f0f0f0;
+    height: 90vh;
+    background-color: #292626;
+    ;
     box-sizing: border-box; 
     
   }
@@ -101,12 +106,11 @@ header {
     position: absolute;
     justify-content: center;
     align-items: center;
-    margin-left: 0%;
+    margin-left: -8%;
     margin-right: 500px;
     color: #fff;
 }
 
-/* Style the outer container */
 .btn-group {
   width:fit-content;
   position: absolute;
@@ -119,7 +123,6 @@ header {
 
 }
 
-/* Style the buttons */
  .btn {
   padding: 10px;
   height:auto;
@@ -132,7 +135,6 @@ header {
   transition: background-color 0.3s ease; 
 } 
 
-/* Style the second button differently */
 #btn-g2 {
   background-color: #F16529;
   border-radius: 0 5px 5px 0;
@@ -147,38 +149,74 @@ header {
 #btn-g1{
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #292626;
-  color: #fff;
+  background-color: #fff;
+  color: #f4753e;
   border-radius: 5px 0 0 5px;
 }
 
-/* On hover, change the background color */
 #btn-g1:hover {
   background-color: #555;
 }
 
 
 .header-text h2 h3{
-width: 495px;
-height: 57px;
-justify-content: center;
-color: #484646;
-text-align: center;
-font-family: Livvic;
-font-size: 40px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-align-content: center;
+  width: 495px;
+  height: 57px;
+  justify-content: center;
+  color: #484646;
+  text-align: center;
+  font-family: Livvic;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-content: center;
 }
 
 .header-image img{
-    position: relative;
-    float: right;
-    z-index: 1;
-    right: -350px;
-    top: -10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  float: right;
+  right:10%;
+  top: 10%;
 }
+
+.social-icon2 {
+  position: absolute;
+  right: 8%; 
+  display: block;
+  margin-left: 10%;
+  justify-content:space-between;
+}
+
+.social-icon2 a {
+  text-decoration: none;
+  color: #ece8e8; /* Customize the color as needed */
+  display: block;
+  margin: 15px;
+  padding: 3px;
+  border:2px solid #fc5b37;
+  box-sizing: content-box;
+  border-radius: 100%;
+}
+
+.social-icon2 a:hover{
+  color: #fc5b37;
+  transform: scale(1.1);
+}
+
+.img-shape1{
+  position: absolute;
+  float: right;
+  z-index: 0;
+  height: 300px;
+  max-width: 500px;
+  background-color: #ccc;
+}
+
 /* end header */
 
 /* About starts */
@@ -251,9 +289,10 @@ align-content: center;
 }
 
 .social-icon1 a:hover{
-  color: #e57740;
+  color: #fc5b37;
   transform: scale(1.1);
 }
+
 
 .about-image h3{
     color: #d1caca;
@@ -474,14 +513,22 @@ svg{
     margin-left: 20px;
     color: #e57740;
   }
+
+  .contact-btn{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  /* end of contact */
   
  
   /* upload page design */
   .file-upload{
     padding: 50px;
   }
-
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
 body, h1, p, form {
   margin: 0;
