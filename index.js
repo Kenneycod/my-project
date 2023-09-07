@@ -148,7 +148,7 @@ app.post('/review',async (req,res)=>{
         github,
     } = req.body;
     var success = false;
-    console.log(rate);
+    console.log("Rate details fetched .....");
     try{
         await connect();
         const dbName = process.env.RWDB;
@@ -221,6 +221,6 @@ app.post('/',async (req,res)=>{
     res.redirect('/')
 })
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log(`server is running .........`);
 })
