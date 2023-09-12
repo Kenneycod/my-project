@@ -194,18 +194,18 @@ header {
 
 .social-icon2 a {
   text-decoration: none;
-  color: #ece8e8; /* Customize the color as needed */
+  color: #d0c1c1; /* Customize the color as needed */
   display: block;
   justify-content: center;
   text-align: center;
-  margin: 15px;
-  padding:5%;
+  margin: 20px;
+  padding:10px;
   border:2px solid #fc5b37;
   border-radius: 50%;
 }
 
 .social-icon2 a:hover{
-  color: #fc5b37;
+  color: #ffffff;
   transform: scale(1.1);
 }
 
@@ -270,27 +270,27 @@ header {
     position: absolute;
     float: left;
     z-index: 1;
-    top: 10%;
-    margin-left: 7%;
-    margin-right: 15%;
+    top: 5%;
+    margin-left: 4%;
+    margin-right: 7%;
     margin-bottom: 0%;
 }
 
 .social-icon1 a{
-  color: #d1caca;
+  color: #d0c1c1;
     float: left;
-    left: 14%;
+    left: 10%;
     position:relative;
-    top: 445px;
+    top: 440px;
     text-align: center;
     margin-right: 3%;
-    padding: 0.5%;
+    padding: 1%;
     border:2px solid #fc5b37;
     border-radius: 100%;
 }
 
 .social-icon1 a:hover{
-  color: #fc5b37;
+  color: #ffffff;
   transform: scale(1.1);
 }
 
@@ -312,7 +312,7 @@ header {
     border: 5px solid #fc5b37;
     position: relative;
     float: left;
-    left: -13%;
+    left: -16.5%;
     z-index: 0;
     top: 7%;    
     margin-bottom: 0%;
@@ -403,9 +403,7 @@ svg{
 
   .carousel-item .card a{
     color: #F16529;
-    gap: 20%;
-    margin-top: 2%;
-    margin-left: 4%;
+    margin: 5px;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -419,6 +417,7 @@ svg{
     justify-content: center;
     align-items: center;
     align-content: center;
+    text-align: center;
   }
   
   .title {
