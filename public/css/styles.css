@@ -196,11 +196,12 @@ header {
   text-decoration: none;
   color: #ece8e8; /* Customize the color as needed */
   display: block;
+  justify-content: center;
+  text-align: center;
   margin: 15px;
-  padding: 3px;
+  padding:5%;
   border:2px solid #fc5b37;
-  box-sizing: content-box;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 
 .social-icon2 a:hover{
