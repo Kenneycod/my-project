@@ -65,11 +65,10 @@ app.get('/',async (req,res)=>{
      await connect();
      const reviewData = await readDocument(dbName,collectionName,{});
      res.render('home',{reviewData})
-     console.log(reviewData)
     } finally{
     await close();
     }
-    res.render('home')
+    // res.render('home')
 })
 
 // upload file to mongoDB
