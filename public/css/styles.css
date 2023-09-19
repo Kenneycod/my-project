@@ -11,6 +11,21 @@ html:hover{
 body{
     margin: 0;
     padding: 0;
+    background: #202020;
+    z-index: 0;
+}
+
+.body-shape{
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  width: 10.5625rem;
+  height: 20.5625rem;
+  top: 130%;
+  flex-shrink: 0;
+  border-radius: 34.5625rem;
+  background: rgba(198, 69, 15, 0.50);
+  filter: blur(100px);
 }
 
 footer{
@@ -22,6 +37,7 @@ footer{
     z-index: 3;
     border: none;
     opacity: 100%;
+    
 }
 .navbar-collaspe{
     margin-right: 20px;
@@ -30,13 +46,16 @@ footer{
 
 .navbar-brand img{
   width: 25%;
-  object-fit: contain;
-  border-radius: 100%;
+  overflow: auto;
 }
 
 .nav-item{
     padding-right: 40px;
-    color: #F16529;
+    color: #FFF;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .navbar-nav .nav-link:active {
@@ -44,7 +63,7 @@ footer{
 }
 
 .nav-link {
-    color: #f17a46; 
+    color: #EA692F; 
 }
 
 .nav-link:hover{
@@ -95,8 +114,7 @@ header {
     z-index: 6;
     overflow: hidden;
     height: 90vh;
-    background-color: #292626;
-    ;
+    
     box-sizing: border-box; 
     
   }
@@ -119,6 +137,8 @@ header {
      outline-color:2px #F16529;
   float: left;
   left: -3%;
+  opacity: 50%;
+  /* filter:brightness(10px); */
 }
 
 .header-text{
@@ -157,23 +177,13 @@ header {
   margin-top: 40px;
 } 
 
-#btn-g2 {
-  background-color: #F16529;
-  border-radius: 0 5px 5px 0;
-  color: #fff;
-  
-}
-
-#btn-g2:hover{
-  background-color: #f4753e;
-}
 
 #btn-g1{
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #fff;
-  color: #f4753e;
-  border-radius: 5px 0 0 5px;
+  background-color: #FF4C00;
+  color: #ffffff;
+  border-radius: 0.2em;
 }
 
 #btn-g1:hover {
@@ -223,7 +233,7 @@ header {
   text-align: center;
   margin: 25px;
   padding:10px;
-  border:2px solid #fc5b37;
+  border:2px solid #FF4C00;
   border-radius: 50%;
 }
 
@@ -233,7 +243,7 @@ header {
 }
 
 .img-shape1{
-  position: absolute;
+  position: relative;
   float: right;
   z-index: 0;
   height: 300px;
@@ -247,10 +257,14 @@ header {
 .about-section {
     position: relative;
     align-items: center;
-    background-color: #292626;
-    border:2px solid #282626;
+    border-radius: 0.75rem;
+    border: 1px solid #FFF;
+    opacity:70%;
+    /* background: rgba(58, 58, 58, 0.60); */
+    backdrop-filter: blur(40px);
     height: 600px;
     height: 100vh;
+    margin: 3%;
     z-index: 7;
 }
 
@@ -273,13 +287,14 @@ header {
 }
 
 .about-message button{
-    background-color: #F16529;
+    background-color: #FF4C00;
     margin-top: 20px;
     padding: 10px 25px 10px 25px;
     font-weight: 600;
     border-radius: 5px;
     border: none;
-    color: #eae4e4;
+    color: #FFF;
+    
 }
 
 .about-message button:hover{
@@ -308,7 +323,7 @@ header {
     text-align: center;
     margin-right: 3%;
     padding: 1%;
-    border:2px solid #fc5b37;
+    border:2px solid #FF4C00;
     border-radius: 100%;
 }
 
@@ -326,20 +341,6 @@ header {
     top: 435px;
     text-align: center;
 }
-.about-shape{
-    width: 270px;
-    height: 55%;
-    flex-shrink: 0;
-    border-radius: 5%  5% 0 0;
-    background:local;
-    border: 5px solid #fc5b37;
-    position: relative;
-    float: left;
-    left: -17.5%;
-    z-index: 0;
-    top: 7%;    
-    margin-bottom: 0%;
-}
 /* about ends */
 
 /* service section start */
@@ -351,7 +352,7 @@ header {
     place-items: center;
     justify-content: center;
     margin-top: 20%;
-    margin: 0%;
+    margin: 5%;
 }
 
 .text-center{
@@ -360,6 +361,10 @@ header {
   justify-content: center;
   align-items: center;
   top: 20%;
+}
+
+.container.card-img-top{
+  object-fit:contain;
 }
 
 .service-card .card-title{
@@ -372,11 +377,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
-    /* right: 5%; */
-    margin-right: 20px;
+    margin: 10%;
     place-content: center;
     margin-bottom: 5px;
+    border-radius: 0.75rem;
+    border: 1px solid #FFF;
+    background: #3A3A3A;
+    color: #FFF;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -385,6 +392,7 @@ svg{
     padding-right: 100px;
     justify-content: center;
     margin-left: 270px;
+    
 }
 
 /* testimonial */
@@ -392,6 +400,10 @@ svg{
 .testimonial-section{
     background: #282626;
     overflow: hidden;
+    margin: 3%;
+    border-radius: 0.75rem;
+    border: 1px solid #FFF;
+    background: #3A3A3A;
 }
 
 .testimonial-image{
@@ -467,6 +479,7 @@ svg{
     margin-bottom: 20px;
     max-width: 50%;
     height: 100vh;
+    z-index: 0;
   }
 
   .form-header{
@@ -476,6 +489,21 @@ svg{
     color:ivory;
     margin-bottom: 20px;
   }
+
+ #submitMessage{
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  padding: 10px;
+  z-index: 2;
+  top: 50%;
+  background: white;
+  height: 50px;
+  border-radius: 5px;
+ }
 
   .contact-section.container,.contact-text,.contact-textarea{
     border-bottom:2px solid #F16529;
@@ -838,7 +866,8 @@ label {
     align-items: center;
   }
   .service-icon{
-    
+    display: flex;
+    flex-direction: row-reverse;
     margin: 0%;
     padding: 0%;
 }
@@ -847,6 +876,8 @@ svg{
     margin: 0%;
     padding-right: 0%;
     height: 40%;
+    display: flex;
+    flex-direction: row-reverse;
     
 }
 

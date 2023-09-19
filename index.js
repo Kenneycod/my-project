@@ -130,7 +130,7 @@ app.get('/home/downloadcv/:id', async (req,res)=>{
 });
 
 // review card form
-app.get('/review',(req,res)=>{
+app.get('/review',async (req,res)=>{
     res.render('review',{success:false});
 });
 
@@ -196,14 +196,17 @@ app.post('/',async (req,res)=>{
             const newData = {firstname,lastname,email,subject};
             const createData = await createDocument(dbName,collectionName,newData);
             console.log('created: ',createData);
+            res.redirect('/#contact')
 
+        } finally {
+            await close();
             const emailContent = {
                 from: process.env.user,
                 to:'chibkennedy@gmail.com',
                 subject: 'New Contact Form Submission',
                 text:subject,
             }
-
+        
             transporter.sendMail(emailContent,(err,info)=>{
                 if (err){
                     console.log(err)
@@ -211,15 +214,9 @@ app.post('/',async (req,res)=>{
                     console.log('Email sent successfully: ',info)
                 }
             })
-
-        } finally {
-            await close();
         }
-
-    
-    res.redirect('/')
 })
 
-app.listen(process.env.PORT || 3000,()=>{
+app.listen(3000,()=>{
     console.log(`server is running .........`);
 })

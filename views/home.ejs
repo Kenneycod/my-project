@@ -1,9 +1,9 @@
 <%- include('partials/header') %>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-dark">
+<nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="#home"><img src="/images/Logo2.png" alt=""></a>
+    <a class="navbar-brand" href="#home"><img src="/images/ken log 2.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,7 +40,6 @@
         </div>
         <div class="btn-group btn-group-lg">
           <a href="#contact"><button class="btn" id="btn-g1">Hire me!</button></a>
-          <a href="/home/downloadcv/64dcc26d0622373201fe30ab"><button class="btn" id="btn-g2">Download CV  <i class="fa fa-download fa-beat" aria-hidden="true"></i></button></a>   
         </div>
     </div>
 
@@ -56,13 +55,15 @@
     </div>
   </header>
 
+  <div class="body-shape"></div>
+
   <!-- end header -->
 
   <!-- About section  -->
   <section class="about-section bg-dark" id="about">
     <img src="/images/mypics2.jpg" id="about-img-sc" style="display: none;">
     <div class="about-message">
-      <h2><span style="color: #F16529">About</span> Me</h2>
+      <h2><span style="color: #FF4C00">About</span> Me</h2>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
          when an unknown printer took a galley of type and scrambled it to make a type specimen book.
          It has survived not only five centuries, but also the leap into electronic 
@@ -79,13 +80,13 @@
         <a href='#'><i class="fab fa-github fa-xl"></i></a>
       </div>
     </div>
-    <div class="about-shape"></div>
+    <!-- <div class="about-shape"></div> -->
   </section>
   <!-- End About section -->
 
   <!-- Service section -->
   <section class="service-card" id="services">
-    <h2 class="text-center" style="text-align: center;"><span style="color: #F16529;">Services</span></h2><br>
+    <h2 class="text-center" style="text-align: center;"><span style="color: #FF4C00;">Services</span></h2><br>
 
     <div class="container">
      <div class="row justify-content-center">
@@ -269,7 +270,7 @@
         <% }) %>
 
       <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
+        <span class="carousel-control-prev-icon" style="color: #FF4C00;"></span>
       </a>
       <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
         <span class="carousel-control-next-icon"></span>
@@ -285,7 +286,7 @@
       <div class="form-container">
 
         <div class="form-header"><h2>Let's <span style="color: #F16529;">talk</span></h2></div>
-        <form action="/" method="post">
+        <form action="/" method="post" id="contactForm">
     
           <div class="inner-container">
             <input type="text" class="contact-text" id="fname" name="firstname" placeholder="Your name.." required><br>
@@ -294,14 +295,18 @@
             <input type="email" class="contact-text" id="email" name="email" placeholder="Email" required><br>
         
             <textarea id="subject" name="subject" placeholder="Write message.." style="height:200px; width:100%; " class="contact-textarea" required></textarea><br>
-        
+      
             <!-- <input type="submit" value="Submit"> -->
             <button type="submit" class="contact-btn">Send <i class="fa-regular fa-paper-plane fa-beat-fade" style="color: #ec6d18;"></i></button>
           </div>
       
-        </form>  
+        </form> 
+        <div id="submitMessage">
+          <span><i class="fa-regular fa-circle-check fa-beat-fade" style="color: #f27f21;"></i> Thanks for contacting Us</span>
+        </div> 
       </div>
 
+      
       <div class="contact-icon">
         <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
         <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
@@ -315,5 +320,20 @@
 
     </div>
   </section>
+
+  <script>
+    const contact_form = document.getElementById('contactForm');
+    const showMessage = document.getElementById('submitMessage');
+
+    contact_form.addEventListener('submit',(event)=>{
+      setTimeout(()=>{
+        showMessage.style.display = 'block';
+
+        setTimeout(() => {
+          showMessage.style.display = 'none';
+    }, 1000);
+      },3000);
+    })
+  </script>
 
 <%- include('partials/footer') %>
